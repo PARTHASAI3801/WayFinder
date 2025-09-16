@@ -2,10 +2,6 @@
 
 ## Project title: A Crowdsourcing Tool for Route Optimisation
 
-### Student name: Partha Sai Syed
-
-### Student email: pss40@student.le.ac.uk
-
 ### Project description: 
 This project aims to implement a crowdsourcing route planning tool designed to optimize the travel paths between the locations. The system stores route data as graph nodes with geographic coordinates like latitude, longitude and weighted edges representing distances or time of travel. Users can register and log in to search for routes between two locations, view multiple possible routes with descriptions such as "scenic" or "fastest" or "low traffic"  etc., and select preferred routes. Additionally, users can contribute by adding intermediate nodes ("via" points) and providing route feedback with ratings and suggestions. The backend dynamically fetches route data using external APIs when no data exists and stores user contributions for continual improvement. The frontend displays routes interactively using React Leaflet, allowing real-time visualization of paths and user inputs.
 This application will be built using the following tech stack:
@@ -154,9 +150,3 @@ Frontend runs on: http://localhost:3000
 Now everything works 
 
 
-## Information about this repository
-This is the repository that you are going to use **individually** for developing your project. Please use the resources provided in the module to learn about **plagiarism** and how plagiarism awareness can foster your learning.
-
-Regarding the use of this repository, once a feature (or part of it) is developed and **working** or parts of your system are integrated and **working**, define a commit and push it to the remote repository. You may find yourself making a commit after a productive hour of work (or even after 20 minutes!), for example. Choose commit message wisely and be concise.
-
-Please choose the structure of the contents of this repository that suits the needs of your project but do indicate in this file where the main software artefacts are located.
