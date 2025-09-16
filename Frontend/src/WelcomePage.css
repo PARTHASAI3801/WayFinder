@@ -1,0 +1,157 @@
+/* Container: split screen */
+.welcome-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Georgia", serif;
+  background: #f5f7fa;
+}
+
+/* Left side */
+.left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  background-size: 150%;
+  background: white;
+  box-shadow: inset -6px 0 15px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome text */
+.welcome-text {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 2px;
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  font-weight: 150;
+  margin: 0;
+  color: #6a0dad; /* Purple */
+}
+
+.highlight {
+  color: #8a2be2;
+}
+
+.subtext {
+  font-size: 20;
+  color: #211010;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Image below */
+.welcome-image {
+  max-width: 200%;
+  max-height: 80vh;
+  object-fit: contain;
+  margin-top: 5px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Right side */
+.right-side {
+  flex: 1;
+  background: linear-gradient(to bottom right, #6a0dad, #8a2be2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  color: white;
+  margin-top: 1px;
+}
+
+/* Login form */
+.login-form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Input fields */
+.input-field {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Submit button */
+.submit-btn {
+  background-color: rgb(252, 252, 252);
+  color: #6a0dad;
+  border: none;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ddd;
+}
+
+/* Greeting text */
+.greeting-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d8bfd8;
+  margin-bottom: 12px;
+  left: 2px;
+  
+}
+
+/* Not registered text inline with create account */
+.not-registered {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  color: #f3e8ff;
+  font-size: 0.95rem;
+
+  display: inline-flex;    /* makes container inline and flex */
+  justify-content: center; /* center horizontally */
+  gap: 5px;                /* spacing between texts */
+  align-items: center;     /* vertically align */
+  cursor: default;         /* cursor pointer only on "Create Account" */
+}
+
+
+/* Create account link */
+.create-account {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #e0d4ff;
+  user-select: none;
+}
+
+.create-account:hover {
+  color: #ffffff;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+

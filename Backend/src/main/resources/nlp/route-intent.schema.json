@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RouteIntent",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "from": {
+      "type": ["string", "null"],
+      "pattern": "(?i)^[A-Za-z]([A-Za-z']|-[A-Za-z']+)*(?:\\s(?:[A-Za-z]([A-Za-z']|-[A-Za-z']+)*|upon|of|by|the|and|st|st\\.)){0,6}$"
+    },
+    "to": {
+      "type": ["string", "null"],
+      "pattern": "(?i)^[A-Za-z]([A-Za-z']|-[A-Za-z']+)*(?:\\s(?:[A-Za-z]([A-Za-z']|-[A-Za-z']+)*|upon|of|by|the|and|st|st\\.)){0,6}$"
+    },
+    "via": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "(?i)^[A-Za-z]([A-Za-z']|-[A-Za-z']+)*(?:\\s(?:[A-Za-z]([A-Za-z']|-[A-Za-z']+)*|upon|of|by|the|and|st|st\\.)){0,6}$"
+      },
+      "default": []
+    },
+    "mode": {
+      "type": ["string", "null"],
+      "enum": ["driving-car", "driving-hgv", "foot-walking", "cycling-regular", null]
+    },
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenic": { "type": "boolean", "default": false },
+        "avoidMotorways": { "type": "boolean", "default": false },
+        "leaveAfter": { "type": ["string", "null"] }
+      },
+      "required": ["scenic", "avoidMotorways"]
+    },
+    "useCurrentLocation": { "type": "boolean", "default": false }
+  },
+  "required": ["to", "useCurrentLocation", "preferences", "via"]
+}

@@ -1,0 +1,44 @@
+@startuml
+title Chat → Intent → Route (Simple Flow)
+
+|Frontend|
+start
+:User types prompt in chat;
+:POST /nlp/parse\n{ prompt, context };
+
+|Backend (API)|
+:Build systemPrompt()\n(JSON-only rules + normalization);
+:Build userPrompt (chat + context);
+:Call gemini.jsonExtract(\nsystemPrompt, userPrompt, schema);
+
+|LLM (Gemini)|
+:Produce JSON intent per schema;
+:Return JSON to backend;
+
+|Backend (API)|
+:Deserialize → RouteIntent (Jackson);
+if (Schema valid?) then (No)
+  :jsonRepair(...)\n(repair to schema);
+  :Re-validate;
+endif
+
+:Compute missing fields\n(from/to/via/mode/location);
+
+if (Missing?) then (Yes)
+  :Prepare ask + CTA\n(e.g., {type: "requestLocation", label: "I'm here"});
+  :nextAction = ASK_FROM / ASK_TO / ASK_LOCATION;
+  :HTTP 200 → { ask, cta, nextAction, data=intent };
+  |Frontend|
+  :Render ask + CTA;\nWait for user reply;
+  stop
+else (No)
+  :routingService.getRoute(...)\n→ distance, duration, geometry (encoded);
+  :HTTP 200 → { nextAction=SHOW_ROUTE,\nroute, data=intent };
+  |Frontend|
+  :Apply intent to state (from/to/via/mode);
+  :Decode geometry (@mapbox/polyline);
+  :Draw Polyline/Markers (React-Leaflet);
+  stop
+endif
+
+@enduml
